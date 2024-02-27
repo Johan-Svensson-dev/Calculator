@@ -14,14 +14,17 @@ html {
 }
 
 body {
+    background-color: black;
 
 }
 
 main {
+    
 
 }
 
 main input{
+    min-height: 100px;
     width: 100%;
     font-size: 3.5rem;
     margin-bottom:10px;
@@ -30,13 +33,20 @@ main input{
     text-align: right;
     padding: 10px 4px 10px 4px;
     font-family: lcd;
-    border: 1px solid yellow;
-    border-radius:4px;
 }
 
 main section#keyBoard {
-    /** Grid eller liknade */
+    display: grid;
+    grid-template-columns: 4 1fr; 
+    gap: .3rem;
 }
+
+main button{
+    padding: 10px;
+    font-size: 4rem;
+}
+
+
 
 @media (max-width: 767px) {
     body {

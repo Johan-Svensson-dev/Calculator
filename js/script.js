@@ -26,20 +26,12 @@ function buttonClick(e) {
     if (btn.substring(0, 1) === 'b') {
         let digit = btn.substring(1, 2); // plockar ut siffran från id:et
 
-    } else {
-        switch  (btn){
-            case 'add':
-            case 'sub':
-            case 'mul': 
-            case 'div':        
-                setOperator(btn);
-                break;
-            case 'comma':
-                
-                
 
 
-        }  // Inte en siffertangent, övriga tangenter.
+
+
+
+        // Inte en siffertangent, övriga tangenter.
 
     }
 }
@@ -61,7 +53,7 @@ function addComma() {
  * Sparar operator.
  * +, -, *, /
  */
-function setOperator(operator){
+function setOperator(operator) {
 
 }
 
@@ -79,7 +71,7 @@ function clearLCD() {
 }
 
 /** Rensar allt, reset */
-function memClear(){
+function memClear() {
     memory = 0;
     arithmetic = null;
     clearLCD();
