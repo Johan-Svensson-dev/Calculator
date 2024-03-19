@@ -14,10 +14,16 @@ html {
 }
 
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: a
 
 }
 
 main {
+    max-width: 410px;
+    
 
 }
 
@@ -32,10 +38,19 @@ main input{
     font-family: lcd;
     border: 1px solid yellow;
     border-radius:4px;
+    padding-top: 50px   ;
 }
 
 main section#keyBoard {
+    display: grid;
+    grid-template-columns: 1fr(repeat);
     /** Grid eller liknade */
+}
+
+button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 4rem;
 }
 
 @media (max-width: 767px) {
