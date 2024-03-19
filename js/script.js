@@ -30,10 +30,11 @@ function buttonClick(e) {
         switch (btn) {
             case 'add':
                 arithmetic = '+';
-                addDigit('+')
+                addPlus('+');
                 break;
             case 'sub':
                 arithmetic = '-';
+                addMinus('-');
                 break;
             case 'mul':
                 arithmetic = '*';
@@ -52,26 +53,31 @@ function buttonClick(e) {
                 break;
         }
     }
+}
 
     /**
      *  Lägger till siffra på display.
      */
     function addDigit(digit) {
         lcd.value += digit;
-
     }
 
     /**
      * Lägger till decimaltecken
      */
     function addComma() {
-        
+
     }
 
-    function addPlus(){
-        if (onclick == )
+    function addPlus() {
+        lcd.value += '+';
+        memory == digit;
+
     }
-    
+
+    function addMinus() {
+        memory += digit;
+        lcd.value += '-';
     }
 
     /**
@@ -79,18 +85,14 @@ function buttonClick(e) {
      * +, -, *, /
      */
     function setOperator(operator) {
-       
-
         }
-        clearLCD();
-    }
+    
 
     /**
      * Beräknar och visar resultatet på displayen.
      */
     function calculate() {
-
-
+        
     }
 
     /** Rensar display */
