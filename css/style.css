@@ -68,4 +68,5 @@ button#clear:hover {
 
 #memoryDisplay{
     font-size: 1rem;
+    color: grey ;
 }

@@ -42,10 +42,11 @@ function buttonClick(e) {
                 showMem();
                 break;
             case 'mul':
+                arithmetic = '*';
+
                 addMul();
                 clearLCD();
                 showMem();
-                arithmetic = '*';
                 break;
             case 'div':
                 arithmetic = '/';
@@ -69,7 +70,7 @@ function buttonClick(e) {
 }
 
 function showMem () {
-    document.getElementById('memoryDisplay').value = memory + arithmetic
+    document.getElementById('memoryDisplay').value = memory + arithmetic;
 
 }
     /**
