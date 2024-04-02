@@ -33,21 +33,25 @@ function buttonClick(e) {
                 arithmetic = '+';
                 addPlus('+');
                 clearLCD();
+                showMem();
                 break;
             case 'sub':
                 arithmetic = '-';
                 addMinus('-');
                 clearLCD();
+                showMem();
                 break;
             case 'mul':
                 addMul();
                 clearLCD();
+                showMem();
                 arithmetic = '*';
                 break;
             case 'div':
                 arithmetic = '/';
                 addDiv();
                 clearLCD()
+                showMem();
                 break;
             case 'clear':
                 clearLCD();
@@ -58,10 +62,10 @@ function buttonClick(e) {
                 break;
             case 'comma':
                 addComma();
+                showMem();
                 break;
         }
     }
-    showMem();
 }
 
 function showMem () {
@@ -122,7 +126,6 @@ function showMem () {
             case '+':
                 result = Number(memory) + Number(lcd.value);
                 lcd.value = result;
-                clearMemLCD();
                 break;
             case '-':
                 result = Number(memory) - Number(lcd.value);
@@ -137,8 +140,9 @@ function showMem () {
                 lcd.value = result;
                 break;
         }
-        showMem();
-        clearMemLCD();
+        lcd.value = result; 
+        memoryDisplay.value = '';
+        memory = result 
 
         
     }
@@ -147,10 +151,13 @@ function showMem () {
     function clearLCD() {
         lcd.value = '';
         isComma = false;
+        memoryDisplay.value = '';
     }
 
     function clearMemLCD(){
         memoryDisplay.value = '';
+        isComma = false;
+        memory=lcd.value
     }
     /** Rensar allt, reset */
     function memClear() {

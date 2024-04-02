@@ -1,75 +1,71 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-@font-face {
-  font-family: lcd;
-  src: url(../font/SUBWT___.ttf);
-}
-
-html {
-    font-size: 62.5%;
-}
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: a
-
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+    font-family: sans-serif;
 }
 
 main {
-    max-width: 410px;
-    
-
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-main input{
+input[type="text"] {
     width: 100%;
-    font-size: 3.5rem;
-    margin-bottom:10px;
-    background-color: black;
-    color: green;
+    padding: 20px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #eee;
+    font-size: 2rem;
+    color: #333;
     text-align: right;
-    padding: 10px 4px 10px 4px;
-    font-family: lcd;
-    border: 1px solid yellow;
-    border-radius:4px;
-    padding-top: 50px   ;
+    border-bottom: 1px solid #ddd;
 }
 
-main section#keyBoard {
+#keyBoard {
     display: grid;
-    grid-template-columns: 1fr(repeat);
-    /** Grid eller liknade */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px; /* Small gap to simulate button spacing */
+    background-color: #ddd;
 }
 
-button{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 4rem;
+button {
+    background-color: #fafafa;
+    border: none;
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-@media (max-width: 767px) {
-    body {
-
-    }
-
-    main {
-
-    }
-
-    main input{
-
-    }
+button:hover {
+    background-color: #f0f0f0;
 }
 
-@media (max-width: 339px) {
-    main {
+button#clear {
+    background-color: #ff6666;
+    color: #fff;
+}
 
-    }
+button#clear:hover {
+    background-color: #ff4d4d;
+}
 
+.action {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+}
+
+.action:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+#memoryDisplay{
+    font-size: 1rem;
 }
