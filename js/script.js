@@ -11,6 +11,7 @@ let arithmetic = null; // Vilken beräkning som skall göras +,-, x eller /
 
 function init() {
     lcd = document.getElementById('lcd');
+    memoryDisplay = document.getElementById('memoryDisplay'); 
     let keyBoard = document.getElementById('keyBoard')
     keyBoard.onclick = buttonClick;
 }
@@ -31,30 +32,42 @@ function buttonClick(e) {
             case 'add':
                 arithmetic = '+';
                 addPlus('+');
+                clearLCD();
                 break;
             case 'sub':
                 arithmetic = '-';
                 addMinus('-');
+                clearLCD();
                 break;
             case 'mul':
+                addMul();
+                clearLCD();
                 arithmetic = '*';
                 break;
             case 'div':
                 arithmetic = '/';
+                addDiv();
+                clearLCD()
                 break;
             case 'clear':
                 clearLCD();
                 break;
             case 'enter':
                 calculate();
+                memory=lcd.value;
                 break;
             case 'comma':
                 addComma();
                 break;
         }
     }
+    showMem();
 }
 
+function showMem () {
+    document.getElementById('memoryDisplay').value = memory + arithmetic
+
+}
     /**
      *  Lägger till siffra på display.
      */
@@ -66,18 +79,29 @@ function buttonClick(e) {
      * Lägger till decimaltecken
      */
     function addComma() {
+        lcd.value += '.';
+
 
     }
 
     function addPlus() {
+        memory=lcd.value;
         lcd.value += '+';
-        memory == digit;
-
     }
 
     function addMinus() {
-        memory += digit;
+        memory=lcd.value;
         lcd.value += '-';
+    }
+
+    function addDiv() {
+        memory=lcd.value;
+        lcd.value += '/';
+    }
+
+    function addMul() {
+        memory=lcd.value;
+        lcd.value += '*';
     }
 
     /**
@@ -85,6 +109,7 @@ function buttonClick(e) {
      * +, -, *, /
      */
     function setOperator(operator) {
+        arithmetic = operator;
         }
     
 
@@ -92,6 +117,29 @@ function buttonClick(e) {
      * Beräknar och visar resultatet på displayen.
      */
     function calculate() {
+        let result 
+        switch (arithmetic) {
+            case '+':
+                result = Number(memory) + Number(lcd.value);
+                lcd.value = result;
+                clearMemLCD();
+                break;
+            case '-':
+                result = Number(memory) - Number(lcd.value);
+                lcd.value = result;
+                break;
+            case '*':
+                result = Number(memory) * Number(lcd.value);
+                lcd.value = result;
+                break;
+            case '/':
+                result = Number(memory) / Number(lcd.value);
+                lcd.value = result;
+                break;
+        }
+        showMem();
+        clearMemLCD();
+
         
     }
 
@@ -101,6 +149,9 @@ function buttonClick(e) {
         isComma = false;
     }
 
+    function clearMemLCD(){
+        memoryDisplay.value = '';
+    }
     /** Rensar allt, reset */
     function memClear() {
         memory = 0;
