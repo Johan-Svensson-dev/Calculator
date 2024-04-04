@@ -28,6 +28,9 @@ function buttonClick(e) {
         let digit = btn.substring(1, 2); // plockar ut siffran från id:et
         addDigit(digit);
     } else {
+        if (arithmetic) { // Kontrollerar om en operation är vald och det finns ett värde att beräkna
+            calculate(); // Utför pågående beräkning
+        }
         switch (btn) {
             case 'add':
                 arithmetic = '+';
@@ -43,26 +46,26 @@ function buttonClick(e) {
                 break;
             case 'mul':
                 arithmetic = '*';
-
-                addMul();
+                addMul('*');
                 clearLCD();
                 showMem();
                 break;
             case 'div':
                 arithmetic = '/';
-                addDiv();
+                addDiv('/');
                 clearLCD()
                 showMem();
                 break;
             case 'clear':
                 clearLCD();
+                clearMemLCD();
+                memClear();
                 break;
             case 'enter':
-                calculate();
-                memory=lcd.value;
+                clearMemLCD();
                 break;
             case 'comma':
-                addComma();
+                addComma('.');
                 showMem();
                 break;
         }
@@ -70,8 +73,7 @@ function buttonClick(e) {
 }
 
 function showMem () {
-    document.getElementById('memoryDisplay').value = memory + arithmetic;
-
+    document.getElementById('memoryDisplay').value = memory + (arithmetic ? arithmetic : '');
 }
     /**
      *  Lägger till siffra på display.
@@ -122,7 +124,7 @@ function showMem () {
      * Beräknar och visar resultatet på displayen.
      */
     function calculate() {
-        let result 
+        let result;
         switch (arithmetic) {
             case '+':
                 result = Number(memory) + Number(lcd.value);
@@ -143,7 +145,6 @@ function showMem () {
         }
         lcd.value = result; 
         memoryDisplay.value = '';
-        memory = result 
 
         
     }
