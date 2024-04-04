@@ -1,4 +1,16 @@
 body {
+    background-color: black;
+
+}
+
+main {
+    
+
+}
+
+main input{
+    min-height: 100px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,6 +28,7 @@ main {
 }
 
 input[type="text"] {
+
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
@@ -24,6 +37,31 @@ input[type="text"] {
     font-size: 2rem;
     color: #333;
     text-align: right;
+
+    padding: 10px 4px 10px 4px;
+    font-family: lcd;
+}
+
+main section#keyBoard {
+    display: grid;
+    grid-template-columns: 4 1fr; 
+    gap: .3rem;
+}
+
+main button{
+    padding: 10px;
+    font-size: 4rem;
+}
+
+
+
+@media (max-width: 767px) {
+    body {
+
+    }
+
+    main {
+
     border-bottom: 1px solid #ddd;
 }
 
@@ -43,6 +81,7 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 
 button:hover {
     background-color: #f0f0f0;
