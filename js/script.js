@@ -26,15 +26,6 @@ function buttonClick(e) {
     // kollar om siffertangent är nedtryckt
     if (btn.substring(0, 1) === 'b') {
         let digit = btn.substring(1, 2); // plockar ut siffran från id:et
-
-
-
-
-
-
-
-        // Inte en siffertangent, övriga tangenter.
-
         addDigit(digit);
     } else {
         switch (btn) {
@@ -96,14 +87,7 @@ function showMem () {
         lcd.value += '.';
 
 
-
-/**
- * Sparar operator.
- * +, -, *, /
- */
-function setOperator(operator) {
     }
-
 
     function addPlus() {
         memory=lcd.value;
@@ -125,12 +109,6 @@ function setOperator(operator) {
         lcd.value += '*';
     }
 
-/** Rensar allt, reset */
-function memClear() {
-    memory = 0;
-    arithmetic = null;
-    clearLCD();
-}
     /**
      * Sparar operator.
      * +, -, *, /
