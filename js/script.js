@@ -28,9 +28,6 @@ function buttonClick(e) {
         let digit = btn.substring(1, 2); // plockar ut siffran från id:et
         addDigit(digit);
     } else {
-        if (arithmetic) { // Om en operation redan är vald, beräkna först det pågående resultatet.
-            calculate(); // Detta steg säkerställer att vi utför föregående beräkning innan vi börjar en ny.
-        }
         switch (btn) {
             case 'add':
                 arithmetic = '+';
@@ -46,28 +43,26 @@ function buttonClick(e) {
                 break;
             case 'mul':
                 arithmetic = '*';
-                addMul('*');
+
+                addMul();
                 clearLCD();
                 showMem();
                 break;
             case 'div':
                 arithmetic = '/';
-                addDiv('/');
+                addDiv();
                 clearLCD()
                 showMem();
                 break;
             case 'clear':
                 clearLCD();
-                clearMemLCD();
-                memClear();
                 break;
             case 'enter':
                 calculate();
                 memory=lcd.value;
-                clearMemLCD();
                 break;
             case 'comma':
-                addComma('.');
+                addComma();
                 showMem();
                 break;
         }
@@ -127,33 +122,31 @@ function showMem () {
      * Beräknar och visar resultatet på displayen.
      */
     function calculate() {
-        let result;
-        let currentInput = Number(lcd.value); // Se till att omvandla nuvarande input till ett tal
-    
+        let result 
         switch (arithmetic) {
             case '+':
-                result = Number(memory) + currentInput;
+                result = Number(memory) + Number(lcd.value);
+                lcd.value = result;
                 break;
             case '-':
-                result = Number(memory) - currentInput;
+                result = Number(memory) - Number(lcd.value);
+                lcd.value = result;
                 break;
             case '*':
-                result = Number(memory) * currentInput;
+                result = Number(memory) * Number(lcd.value);
+                lcd.value = result;
                 break;
             case '/':
-                if (currentInput !== 0) {
-                    result = Number(memory) / currentInput;
-                } else {
-                    alert("Cannot divide by zero.");
-                    return;
-                }
+                result = Number(memory) / Number(lcd.value);
+                lcd.value = result;
                 break;
         }
-    
-        memory = result; // Uppdatera memory med det nya resultatet för fortsatta beräkningar
-        arithmetic = null; // Nollställ den valda aritmetiken efter en beräkning är gjord
+        lcd.value = result; 
+        memoryDisplay.value = '';
+        memory = result 
+
+        
     }
-    
 
     /** Rensar display */
     function clearLCD() {
