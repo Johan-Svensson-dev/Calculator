@@ -66,7 +66,6 @@ function buttonClick(e) {
                 break;
             case 'comma':
                 addComma('.');
-                showMem();
                 break;
         }
     }
@@ -86,7 +85,7 @@ function showMem () {
      * Lägger till decimaltecken
      */
     function addComma() {
-        lcd.value += '.';
+        lcd.value += ".";
 
 
     }
