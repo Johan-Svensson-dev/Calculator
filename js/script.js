@@ -21,14 +21,14 @@ function init() {
  */
 function buttonClick(e) {
     let btn = e.target.id; //id för den tangent som tryckte ner
-
+    console.log(btn);
 
     // kollar om siffertangent är nedtryckt
     if (btn.substring(0, 1) === 'b') {
         let digit = btn.substring(1, 2); // plockar ut siffran från id:et
         addDigit(digit);
     } else {
-        if (arithmetic) { // Kontrollerar om en operation är vald och det finns ett värde att beräkna
+        if (arithmetic && btn != "comma") { // Kontrollerar om en operation är vald och det finns ett värde att beräkna
             calculate(); // Utför pågående beräkning
         }
         switch (btn) {
@@ -66,7 +66,7 @@ function buttonClick(e) {
                 break;
             case 'comma':
                 addComma('.');
-                showMem();
+                //showMem();
                 break;
         }
     }
@@ -145,8 +145,7 @@ function showMem () {
         }
         lcd.value = result; 
         memoryDisplay.value = '';
-
-        
+        arithmetic = null;
     }
 
     /** Rensar display */
