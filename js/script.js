@@ -11,14 +11,14 @@ let arithmetic = null; // Vilken beräkning som skall göras +,-, x eller /
 
 function init() {
     lcd = document.getElementById('lcd');
-    memoryDisplay = document.getElementById('memoryDisplay'); 
+    let memoryDisplay = document.getElementById('memoryDisplay'); 
     let keyBoard = document.getElementById('keyBoard')
     keyBoard.onclick = buttonClick;
 }
 
 /**
  * Händelsehanterare för kalkylatorns tangentbord
- */
+ */ 
 function buttonClick(e) {
     let btn = e.target.id; //id för den tangent som tryckte ner
 
@@ -86,7 +86,6 @@ function showMem () {
      */
     function addComma() {
         lcd.value += ".";
-
 
     }
 
